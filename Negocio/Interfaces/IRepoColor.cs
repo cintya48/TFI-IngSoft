@@ -16,6 +16,7 @@ namespace Negocio.Interfaces
         void DeleteColor(int codigo);
         List<ModeloColor> ListarColores();
         ModeloColor BuscarColor(int codigo);
-       
+        int CantidadColores();
+
     }
 }

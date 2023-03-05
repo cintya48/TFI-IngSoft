@@ -112,19 +112,30 @@ namespace Negocio.Repositorio
 
         }
 
-        private Modelo EnviarDB(ModelModelo modelo)
+        public int CantidadModelos()
         {
-            return new Modelo()
+            using (var db = new TFI_ControlCalidadEntities())
             {
-                SKU = modelo.SKU,
-                Denominacion = modelo.Denominacion,
-                LimiteInferiorObs = modelo.LimiteInferiorObs,
-                LimiteSuperiorObs = modelo.LimiteSuperiorObs,
-                LimiteInferiorRep = modelo.LimiteInferiorRep,
-                LimiteSuperiorRep = modelo.LimiteSuperiorRep,
-                Color = (ICollection<Color>)modelo.Colores,
-            };
+                int cantModelos = db.Modelo.Count();
+                return cantModelos;
+            }
+
         }
+
+
+        //private Modelo EnviarDB(ModelModelo modelo)
+        //{
+        //    return new Modelo()
+        //    {
+        //        SKU = modelo.SKU,
+        //        Denominacion = modelo.Denominacion,
+        //        LimiteInferiorObs = modelo.LimiteInferiorObs,
+        //        LimiteSuperiorObs = modelo.LimiteSuperiorObs,
+        //        LimiteInferiorRep = modelo.LimiteInferiorRep,
+        //        LimiteSuperiorRep = modelo.LimiteSuperiorRep,
+        //        Color = (ICollection<Color>)modelo.Colores,
+        //    };
+        //}
 
         private ModelModelo MapearDB(Modelo tabla)
         {

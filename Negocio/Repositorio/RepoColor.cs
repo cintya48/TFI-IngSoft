@@ -66,10 +66,18 @@ namespace Negocio.Repositorio
             }
         }
 
+        public int CantidadColores()
+        {
+            using (var db = new TFI_ControlCalidadEntities())
+            {
+                int cantColores = db.Color.Count();
+                return cantColores;
+            }
 
-     
+        }
 
-            private Color EnviarDB(ModeloColor color)
+
+        private Color EnviarDB(ModeloColor color)
         {
             return new Color()
             {

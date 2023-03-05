@@ -11,6 +11,8 @@ namespace Negocio.Interfaces
     {
         void IniciarOP(ModeloOP op);
         List<ModeloOP> ListarOP();
+        void ActualizarOP(ModeloOP op);
+        ModeloOP BuscarOP(int num_op);
 
     }
 }

@@ -15,7 +15,6 @@ namespace Negocio.Interfaces
         void DeleteModelo(int? SKU);
         List<ModelModelo> ListarModelos();
         ModelModelo BuscarModelo(int SKU);
-
-
+        int CantidadModelos();
     }
 }
