@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IRepoColor.cs" />
+    <Compile Include="Interfaces\IRepoDefecto.cs" />
     <Compile Include="Interfaces\IRepoLinea.cs" />
     <Compile Include="Interfaces\IRepoModelo.cs" />
     <Compile Include="Interfaces\IRepoOrdenProduccion.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Modelos\ModeloTurno.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\RepoColor.cs" />
+    <Compile Include="Repositorio\RepoDefecto.cs" />
     <Compile Include="Repositorio\RepoLinea.cs" />
     <Compile Include="Repositorio\RepoModelo.cs" />
     <Compile Include="Repositorio\RepoOrdenProduccion.cs" />

@@ -1,0 +1,124 @@
+﻿@{
+    ViewBag.Title = "Inspeccionar";
+}
+
+@model List<Datos.Defecto>
+
+
+<h2>Inspeccionar</h2>
+
+
+
+<button id="aumentar">Aumentar</button>
+<button id="disminuir">Disminuir</button>
+<p>Par de primera: <span id="valor">0</span></p>
+
+<script>
+    // obtén el elemento de botón "aumentar" por su ID
+    var btnAumentar = document.getElementById("aumentar");
+
+    // agrega un manejador de eventos de clic para el botón "aumentar"
+    btnAumentar.addEventListener("click", function () {
+        // obtén el valor actual de la variable y aumenta en 1
+        var valorActual = parseInt(document.getElementById("valor").innerHTML);
+        valorActual++;
+        // actualiza el valor del campo de texto
+        document.getElementById("valor").innerHTML = valorActual;
+    });
+
+    // obtén el elemento de botón "disminuir" por su ID
+    var btnDisminuir = document.getElementById("disminuir");
+
+    // agrega un manejador de eventos de clic para el botón "disminuir"
+    btnDisminuir.addEventListener("click", function () {
+        // obtén el valor actual de la variable y disminuye en 1
+        var valorActual = parseInt(document.getElementById("valor").innerHTML);
+        valorActual--;
+        // actualiza el valor del campo de texto
+        document.getElementById("valor").innerHTML = valorActual;
+    });
+
+</script>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Pie Izquierdo</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                <button id="btnIzquierdo-@i" class="btn btn-sm btn-primary btn-select">+</button>
+                            </td>
+                            <td>@Model[i].Descripcion</td>
+                            <td>
+                                <button id="btnIzquierdo2-@i" class="btn btn-sm btn-danger btn-select2">-</button>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Pie derecho</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                <button id="btnDerecho-@i" class="btn btn-sm btn-primary btn-select">+</button>
+                            </td>
+                            <td>@Model[i].Descripcion</td>
+                            <td>
+                                <button id="btnDerecho2-@i" class="btn btn-sm btn-danger btn-select2">-</button>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-select2.active {
+        background-color: black;
+    }
+</style>
+<style>
+    .btn-select.active {
+        background-color: black;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $('.btn-select').click(function () {
+            $('.btn-select').removeClass('active');
+            $(this).addClass('active');
+        });
+
+        $('.btn-select2').click(function () {
+            $('.btn-select2').removeClass('active');
+            $(this).addClass('active');
+        });
+    });
+</script>
